@@ -54,6 +54,9 @@ I did it out of curiosity, and to gain experience, not to have an effective resu
 
 ### Demo
 
+Check the demo in Google Colab :
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/le-Greg/mesh2sh/blob/master/main.ipynb)
+
 To use the functions of this project you need the dependencies below. The versions indicated are those that I have used, and are only indicative.
 
 - python (3.9.10)
