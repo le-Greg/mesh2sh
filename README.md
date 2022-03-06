@@ -46,6 +46,14 @@ Introduction to mean curvature flow](https://tsg.centre-mersenne.org/item/10.580
 *Reconstruction of the mesh using only spherical harmonics coefficients*
 ![First step](data/2.gif)
 
+### Limitations
+
+This algorithm needs meshes having the topology of a sphere and being manifold. In practice, there are also 2 main sources of error which prevent the algorithm from working on too complex meshes: the area distortion during the spherical parametrization which reduces the resolution at certain places, and the error of approximation of the spherical harmonics function. Here is an example where the algorithm fails to reconstruct the original mesh. [Blub the fish](https://www.cs.cmu.edu/~kmcrane/Projects/ModelRepository/) should fulfill the conditions for this to work, but because there is a high curvature on the fins and the tail, the reconstruction fails.
+
+| ![Blub](data/render_blub_1.png)     | ![Sphere Blub](data/render_blub_2.png) | ![Failed Blub](data/render_blub_3.png) |
+| ----------- | ----------- | ----------- |
+| Initial mesh | Spherical parametrization | Failed reconstruction |
+
 ### Remarks
 
 This project is a proof of concept. It allows to represent a model which has the topology of a sphere in spherical harmonics form. The results could be more precise, first with an authalic (area-preserving) parametrization rather than a conformal (angle-preserving) one. Also, I did not try to train a neural network using this representation, because that requires too much investment. It takes some pre-processing on [common 3D datasets](https://github.com/timzhang642/3D-Machine-Learning) to keep only the watertight genus-0 meshes, and then you have to do the training, which takes time. If anyone wants to try, I'd be happy to help.
